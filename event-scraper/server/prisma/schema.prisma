@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  googleId  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  date        DateTime
+  venue       String?
+  city        String
+  description String?
+  category    String?
+  imageUrl    String?
+  source      String
+  originalUrl String   @unique
+  lastScraped DateTime @default(now())
+  status      String @default("NEW")
+  
+  // Import fields
+  importedAt  DateTime?
+  importNotes String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// enum EventStatus {
+//   NEW
+//   UPDATED
+//   INACTIVE
+//   IMPORTED
+// }
+
+model EmailSubscription {
+  id        String   @id @default(uuid())
+  email     String
+  eventId   String
+  consented Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
