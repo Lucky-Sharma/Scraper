@@ -129,3 +129,7 @@ event-scraper/
 1. Open the frontend URL.
 2. Click **"Refresh Feed"** to trigger the backend scraper.
 3. Watch as new events are fetched, saved to the database, and displayed instantly on the grid.
+
+<img width="1887" height="937" alt="image" src="https://github.com/user-attachments/assets/b1110f1d-5ca2-4a00-94e0-589d28a1e819" />
+<img width="1871" height="937" alt="image" src="https://github.com/user-attachments/assets/68f5e7de-e696-4768-80c9-d03274c8f91c" />
+
